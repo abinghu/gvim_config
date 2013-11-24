@@ -7,3 +7,9 @@
 [submodule "bundle/vim-markdown"]
 	path = bundle/vim-markdown
 	url = https://github.com/plasticboy/vim-markdown.git
+[submodule "bundle/supertab"]
+	path = bundle/supertab
+	url = https://github.com/ervandew/supertab.git
+[submodule "bundle/vim-powerline"]
+	path = bundle/vim-powerline
+	url = https://github.com/Lokaltog/vim-powerline.git
