@@ -1,0 +1,107 @@
+set nocompatible
+source $VIMRUNTIME/vimrc_example.vim
+source $VIMRUNTIME/mswin.vim
+behave mswin
+
+set diffexpr=MyDiff()
+function MyDiff()
+  let opt = '-a --binary '
+  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+  let arg1 = v:fname_in
+  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+  let arg2 = v:fname_new
+  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+  let arg3 = v:fname_out
+  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+  let eq = ''
+  if $VIMRUNTIME =~ ' '
+    if &sh =~ '\<cmd'
+      let cmd = '""' . $VIMRUNTIME . '\diff"'
+      let eq = '"'
+    else
+      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+    endif
+  else
+    let cmd = $VIMRUNTIME . '\diff'
+  endif
+  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
+endfunction
+
+"解决中文菜单乱码
+set langmenu=zh_CN.utf-8
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+
+"common conf{{ 通用配置
+
+"语法高亮
+syntax enable
+syntax on
+"启动新行时自动缩进
+set autoindent
+"窗口右下角显示未完成的命令
+set showcmd
+"代码匹配
+set showmatch
+"配色方案
+colorscheme besDark
+"显示行号
+set number
+"检测文件类型
+filetype on
+"根据侦测到的不同类型加载对应的插件
+filetype plugin on
+"根据侦测到的不同类型采用不同的缩进格式
+filetype indent on
+
+"去掉备份
+set nobackup
+"设置Tab和缩进空格数
+set expandtab
+set smarttab
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+"为光标所在行加亮
+set cursorline
+
+"文件vim之外修改过，自动重新读入
+set autoread
+
+"检索时高亮显示匹配项
+set hls
+
+"忽略大小写
+set ignorecase
+
+"设置文件编码
+set fileencodings=utf-8,gbk
+
+"进制markdown文件折叠
+"let g:vim_markdown_folding_disabled=1
+"设置字体
+set guifont=YaHei_Consolas_Hybrid:h11
+
+"去除normal模式下对<C-A>的映射
+unmap <C-A>
+
+"自动生成和加载view信息，暂时在windows下无效(无法在programfiles下创建目录)
+"au BufWinLeave * silent mkview
+"au BufWinLeave * silent loadview
+
+"启用pathogen插件
+execute pathogen#infect()
+
+"设置powerline插件
+set laststatus=2
+set nocompatible
+set t_Co=256
+
+"编译boost程序
+func! CompileCode()
+    exec "w"
+    exec "!'F:\\Program\ Files\\Microsoft\ Visual\ Studio\ 11.0\\VC\\bin\\cl.exe' /EHsc /I D:\\DevelopEssentials\\Code\\boost_1_52_0 % /link /LIBPATH:D:\\DevelopEssentials\\Code\\boost_1_52_0\\bin.v2\\libs\\libs"
+endfunc
+nmap <F7> :call CompileCode()<cr
