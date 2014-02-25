@@ -28,80 +28,83 @@ function MyDiff()
   silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 endfunction
 
-"½â¾öÖĞÎÄ²Ëµ¥ÂÒÂë
+"è§£å†³ä¸­æ–‡èœå•ä¹±ç 
 set langmenu=zh_CN.utf-8
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 
-"common conf{{ Í¨ÓÃÅäÖÃ
+"common conf{{ é€šç”¨é…ç½®
 
-"Óï·¨¸ßÁÁ
+"è¯­æ³•é«˜äº®
 syntax enable
 syntax on
-"Æô¶¯ĞÂĞĞÊ±×Ô¶¯Ëõ½ø
+"å¯åŠ¨æ–°è¡Œæ—¶è‡ªåŠ¨ç¼©è¿›
 set autoindent
-"´°¿ÚÓÒÏÂ½ÇÏÔÊ¾Î´Íê³ÉµÄÃüÁî
+"çª—å£å³ä¸‹è§’æ˜¾ç¤ºæœªå®Œæˆçš„å‘½ä»¤
 set showcmd
-"´úÂëÆ¥Åä
+"ä»£ç åŒ¹é…
 set showmatch
-"ÅäÉ«·½°¸
+"é…è‰²æ–¹æ¡ˆ
 colorscheme besDark
-"ÏÔÊ¾ĞĞºÅ
+"æ˜¾ç¤ºè¡Œå·
 set number
-"¼ì²âÎÄ¼şÀàĞÍ
+"æ£€æµ‹æ–‡ä»¶ç±»å‹
 filetype on
-"¸ù¾İÕì²âµ½µÄ²»Í¬ÀàĞÍ¼ÓÔØ¶ÔÓ¦µÄ²å¼ş
+"æ ¹æ®ä¾¦æµ‹åˆ°çš„ä¸åŒç±»å‹åŠ è½½å¯¹åº”çš„æ’ä»¶
 filetype plugin on
-"¸ù¾İÕì²âµ½µÄ²»Í¬ÀàĞÍ²ÉÓÃ²»Í¬µÄËõ½ø¸ñÊ½
+"æ ¹æ®ä¾¦æµ‹åˆ°çš„ä¸åŒç±»å‹é‡‡ç”¨ä¸åŒçš„ç¼©è¿›æ ¼å¼
 filetype indent on
 
-"È¥µô±¸·İ
+"å»æ‰å¤‡ä»½
 set nobackup
-"ÉèÖÃTabºÍËõ½ø¿Õ¸ñÊı
+"è®¾ç½®Tabå’Œç¼©è¿›ç©ºæ ¼æ•°
 set expandtab
 set smarttab
 set shiftwidth=4
 set softtabstop=4
 set expandtab
 
-"Îª¹â±êËùÔÚĞĞ¼ÓÁÁ
+"ä¸ºå…‰æ ‡æ‰€åœ¨è¡ŒåŠ äº®
 set cursorline
 
-"ÎÄ¼şvimÖ®ÍâĞŞ¸Ä¹ı£¬×Ô¶¯ÖØĞÂ¶ÁÈë
+"æ–‡ä»¶vimä¹‹å¤–ä¿®æ”¹è¿‡ï¼Œè‡ªåŠ¨é‡æ–°è¯»å…¥
 set autoread
 
-"¼ìË÷Ê±¸ßÁÁÏÔÊ¾Æ¥ÅäÏî
+"æ£€ç´¢æ—¶é«˜äº®æ˜¾ç¤ºåŒ¹é…é¡¹
 set hls
 
-"ºöÂÔ´óĞ¡Ğ´
+"å¿½ç•¥å¤§å°å†™
 set ignorecase
 
-"ÉèÖÃÎÄ¼ş±àÂë
+"è®¾ç½®æ–‡ä»¶ç¼–ç 
 set fileencodings=utf-8,gbk
 
-"½øÖÆmarkdownÎÄ¼şÕÛµş
+"è¿›åˆ¶markdownæ–‡ä»¶æŠ˜å 
 let g:vim_markdown_folding_disabled=1
-"ÉèÖÃ×ÖÌå
+"è®¾ç½®å­—ä½“
 set guifont=YaHei_Consolas_Hybrid:h11
 
-"È¥³ınormalÄ£Ê½ÏÂ¶Ô<C-A>µÄÓ³Éä
+"å»é™¤normalæ¨¡å¼ä¸‹å¯¹<C-A>çš„æ˜ å°„
 unmap <C-A>
 
-"×Ô¶¯Éú³ÉºÍ¼ÓÔØviewĞÅÏ¢£¬ÔİÊ±ÔÚwindowsÏÂÎŞĞ§(ÎŞ·¨ÔÚprogramfilesÏÂ´´½¨Ä¿Â¼)
+"è‡ªåŠ¨ç”Ÿæˆå’ŒåŠ è½½viewä¿¡æ¯ï¼Œæš‚æ—¶åœ¨windowsä¸‹æ— æ•ˆ(æ— æ³•åœ¨programfilesä¸‹åˆ›å»ºç›®å½•)
 "au BufWinLeave * silent mkview
 "au BufWinLeave * silent loadview
 
-"ÆôÓÃpathogen²å¼ş
+"å¯ç”¨pathogenæ’ä»¶
 execute pathogen#infect()
 
-"ÉèÖÃpowerline²å¼ş
+"è®¾ç½®powerlineæ’ä»¶
 set laststatus=2
 set nocompatible
 set t_Co=256
 
-"±àÒëboost³ÌĞò
+"ç¼–è¯‘boostç¨‹åº
 func! CompileCode()
     exec "w"
     exec "!'F:\\Program\ Files\\Microsoft\ Visual\ Studio\ 11.0\\VC\\bin\\cl.exe' /EHsc /I D:\\DevelopEssentials\\Code\\boost_1_52_0 % /link /LIBPATH:D:\\DevelopEssentials\\Code\\boost_1_52_0\\bin.v2\\libs\\libs"
 endfunc
 nmap <F7> :call CompileCode()<cr
+
+"å¼€å¯pythonå‡½æ•°è‡ªåŠ¨è¡¥å…¨
+autocmd FileType python set omnifunc=pythoncomplete#Complete
