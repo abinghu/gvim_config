@@ -80,7 +80,7 @@ set ignorecase
 set fileencodings=utf-8,gbk
 
 "进制markdown文件折叠
-"let g:vim_markdown_folding_disabled=1
+let g:vim_markdown_folding_disabled=1
 "设置字体
 set guifont=YaHei_Consolas_Hybrid:h11
 
