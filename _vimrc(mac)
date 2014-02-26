@@ -63,3 +63,5 @@ set laststatus=2
 set nocompatible
 set t_Co=256
 let g:Powerline_symbols = 'fancy'
+"开启python函数自动补全
+autocmd FileType python set omnifunc=pythoncomplete#Complete
