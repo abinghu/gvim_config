@@ -1,57 +1,40 @@
-"开启语法高亮"
 syntax on
 
-"配色方案
 colorscheme besDark
 
-"启动新行时自动缩进
 set autoindent
 
-"代码匹配
 set showmatch
 
-"窗口右下角显示未完成的命令
 set showcmd
 
-"显示行号
 set nu!
 
-"设置搜索高亮
 set hlsearch
 
-"检测文件类型
 filetype on
-"根据检测到的不同类型加载对应的插件
 filetype plugin on
-"根据侦测到的不同类型采用不同的缩进格式
 filetype indent on
 
-"去掉备份
 set nobackup
 
-"制表符
 set tabstop=4
 set smarttab
 set shiftwidth=4
 set softtabstop=4
 set expandtab
 
-"标识光标行
 set cursorline
 
-"自动载入修改过的文件
 set autoread
 
-"检索时忽略大小写
 set ignorecase
 
-"设置文件编码
 set fileencodings=utf-8,gbk8
 
 "禁止markdown文件折叠
 "let g:vim_markdown_folding_disabled=1
 
-"设置字体
 set guifont=Menlo:h14
 
 "pathogen插件设置
@@ -65,3 +48,8 @@ set t_Co=256
 let g:Powerline_symbols = 'fancy'
 "开启python函数自动补全
 autocmd FileType python set omnifunc=pythoncomplete#Complete
+
+"supertab插件
+let g:SuperTabDefaultCompletionType = "context"
+"pydiction插件
+let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
