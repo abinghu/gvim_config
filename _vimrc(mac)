@@ -31,6 +31,7 @@ set autoread
 set ignorecase
 
 set fileencodings=utf-8,gbk8
+set incsearch "搜索时实时匹配
 
 "禁止markdown文件折叠
 "let g:vim_markdown_folding_disabled=1
